@@ -1,0 +1,6 @@
+.cryptoList li {
+    display: inline-block;
+    background-color: #eee;
+    list-style-type: none;
+    padding: 10px;
+}

@@ -1,0 +1,1 @@
+export const coinMarketCapApiUrl = 'https://pro-api.coinmarketcap.com';

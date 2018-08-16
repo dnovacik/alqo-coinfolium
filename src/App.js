@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { Provider } from 'react-redux';
+import { Store } from './Store';
+
+import Header from './components/Header';
+import ContentContainer from './components/ContentContainer';
+import CryptoContainer from './components/CryptoContainer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Provider store={Store}>
+        <div className='pageWrapper'>
+          <Header />
+          <ContentContainer />
+          <CryptoContainer currency='eur' />
+        </div>
+      </Provider>
     );
   }
 }

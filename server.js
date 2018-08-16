@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 var compression = require("compression");
+var axios = require("axios");
 var app = express();
 
 // Body Parser Middleware
@@ -27,7 +28,20 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.get("/api/ping", function (req, res) {
+app.get("/api/getcmcdata", (req, res) => {
+    console.log(req);
+    axios.get(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10&convert=${req.query.currency.toUpperCase()}`, {
+        headers: {
+            'X-CMC_PRO_API_KEY': ''
+        }
+    }).then(response => {
+        res.send(response.data);
+    }).catch(err => {
+        res.send(err.data);
+    })
+});
+
+app.get("/api/ping", (req, res) => {
     res.send("pong");
 });
 
