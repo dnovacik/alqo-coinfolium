@@ -14,7 +14,8 @@ class CryptoContainer extends Component {
 
         return (
             <ul className='cryptoList'>
-                {crypto.response.data.map((coin, index) =>
+                {crypto.response.data.length > 0 ? 
+                    crypto.response.data.map((coin, index) =>
                     <CoinCard
                         key={index}
                         name={coin.name}
@@ -23,7 +24,8 @@ class CryptoContainer extends Component {
                         price={coin.quote[this.props.currency.toUpperCase()].price}
                         currency={this.props.currency}
                     /> 
-                )}
+                ) :
+                <h1>Couldn't retrieve the data from cmc</h1>}
             </ul>
         );
     }

@@ -5,8 +5,7 @@ import { Provider } from 'react-redux';
 import { Store } from './Store';
 
 import Header from './components/Header';
-import ContentContainer from './components/ContentContainer';
-import CryptoContainer from './components/CryptoContainer';
+import Main from './components/Main';
 
 class App extends Component {
   render() {
@@ -14,8 +13,7 @@ class App extends Component {
       <Provider store={Store}>
         <div className='pageWrapper'>
           <Header />
-          <ContentContainer />
-          <CryptoContainer currency='eur' />
+          <Main />
         </div>
       </Provider>
     );
