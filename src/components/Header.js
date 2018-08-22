@@ -1,6 +1,6 @@
 // imports
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // css
 import './css/header.css'
@@ -9,9 +9,9 @@ const Header = () => (
     <header>
         <nav>
             <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/portfolio'>Portfolio</Link></li>
-                <li><Link to='/listings'>Listings</Link></li>
+                <li><NavLink exact to='/' activeClassName='active'>Home</NavLink></li>
+                <li><NavLink to='/portfolio' activeClassName='active'>Portfolio</NavLink></li>
+                <li><NavLink to='/listings' activeClassName='active'>Listings</NavLink></li>
             </ul>
         </nav>
     </header>

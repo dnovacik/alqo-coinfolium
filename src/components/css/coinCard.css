@@ -1,6 +1,26 @@
-.cryptoList li {
+.listingsItem {
+    width: 30%;
     display: inline-block;
-    background-color: #eee;
-    list-style-type: none;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.listingsItem .panel.is-plus {
+    background-color: rgba(68, 70, 79, 0.5);
+    margin-bottom: 20px;
+    border-radius: 0;
+    border-left: 2px solid green;
+    color: #EFEFEF;
+}
+
+.listingsItem .panel.is-minus {
+    background-color: rgba(68, 70, 79, 0.5);
+    margin-bottom: 20px;
+    border-radius: 0;
+    border-left: 2px solid #ee5b18;
+    color: #EFEFEF;
+}
+
+.listingsItem .panel .panel-body {
+    padding: 15px 15px 15px 15px;
 }

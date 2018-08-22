@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import CryptoContainer from './CryptoContainer';
 
 const Listings = () => (
-    <div>
+    <div className='row'>
         <CryptoContainer currency='eur' />
     </div>
 )

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import LoaderContainer from './LoaderContainer';
 import GetCoinMarketCapData from './../actions/GetCoinMarketCapData';
 import CoinCard from './CoinCard';
+
+import './css/cryptoContainer.css';
 
 class CryptoContainer extends Component {
     componentWillMount() {
@@ -12,22 +15,28 @@ class CryptoContainer extends Component {
     renderCoinCards() {
         const { crypto } = this.props;
 
-        return (
-            <ul className='cryptoList'>
-                {crypto.response.data.length > 0 ? 
-                    crypto.response.data.map((coin, index) =>
-                    <CoinCard
-                        key={index}
-                        name={coin.name}
-                        ticker={coin.symbol}
-                        percent_24h_change={coin.quote[this.props.currency.toUpperCase()].percent_change_24h}
-                        price={coin.quote[this.props.currency.toUpperCase()].price}
-                        currency={this.props.currency}
-                    /> 
-                ) :
-                <h1>Couldn't retrieve the data from cmc</h1>}
-            </ul>
-        );
+        if (crypto.isFetching) {
+            return (
+                <LoaderContainer />
+            );
+        } else {
+            return (
+                <div className='cryptoList'>
+                    {crypto.response.data.length > 0 ? 
+                        crypto.response.data.map((coin, index) =>
+                        <CoinCard
+                            key={index}
+                            name={coin.name}
+                            ticker={coin.symbol}
+                            percent_24h_change={coin.quote[this.props.currency.toUpperCase()].percent_change_24h}
+                            price={coin.quote[this.props.currency.toUpperCase()].price}
+                            currency={this.props.currency}
+                        /> 
+                    ) :
+                    <h1>Couldn't retrieve the data from cmc</h1>}
+                </div>
+            );
+        }
     }
 
     render() {
