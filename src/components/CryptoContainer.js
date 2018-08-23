@@ -9,7 +9,9 @@ import './css/cryptoContainer.css';
 
 class CryptoContainer extends Component {
     componentWillMount() {
-        this.props.GetCoinMarketCapData(this.props.currency);
+        if (this.props.crypto.lastFetch == null || Date.now() - this.props.crypto.lastFetch > 300000) {
+            this.props.GetCoinMarketCapData(this.props.currency);
+        }
     }
 
     renderCoinCards() {

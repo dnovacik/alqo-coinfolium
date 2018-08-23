@@ -6,7 +6,8 @@ const initialState = {
         data: []
     },
     hasError: false,
-    errorMessage: null
+    errorMessage: null,
+    lastFetch: null
 }
 
 export default function(state = initialState, action) {
@@ -24,7 +25,8 @@ export default function(state = initialState, action) {
                 isFetching: false,
                 response: { data: action.payload.data },
                 hasError: false,
-                errorMessage: null
+                errorMessage: null,
+                lastFetch: Date.now()
             });
 
         case FETCHING_COIN_DATA_FAIL:
