@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 import LoaderContainer from './LoaderContainer';
 import GetCoinMarketCapData from './../actions/GetCoinMarketCapData';
@@ -23,20 +24,22 @@ class CryptoContainer extends Component {
             );
         } else {
             return (
-                <div className='cryptoList'>
+                <Grid fluid className='display-flex'>
                     {crypto.response.data.length > 0 ? 
                         crypto.response.data.map((coin, index) =>
-                        <CoinCard
-                            key={index}
-                            name={coin.name}
-                            ticker={coin.symbol}
-                            percent_24h_change={coin.quote[this.props.currency.toUpperCase()].percent_change_24h}
-                            price={coin.quote[this.props.currency.toUpperCase()].price}
-                            currency={this.props.currency}
-                        /> 
+                        <Col lg={2} md={4} sm={4} xs={6}>
+                            <CoinCard
+                                key={index}
+                                name={coin.name}
+                                ticker={coin.symbol}
+                                percent_24h_change={coin.quote[this.props.currency.toUpperCase()].percent_change_24h}
+                                price={coin.quote[this.props.currency.toUpperCase()].price}
+                                currency={this.props.currency}
+                            /> 
+                        </Col>
                     ) :
                     <h1>Couldn't retrieve the data from cmc</h1>}
-                </div>
+                </Grid>
             );
         }
     }

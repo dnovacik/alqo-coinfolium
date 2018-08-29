@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={Store}>
-        <div className='pageWrapper'>
+        <div>
           <Header />
           <Main />
         </div>

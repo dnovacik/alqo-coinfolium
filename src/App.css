@@ -1,11 +1,21 @@
-.row {
-  margin-left: 10px;
-  margin-right: 10px;
+body {
+  padding-top: 60px;
+  background-color: rgb(47, 50, 59);
+  color: #fff;
 }
 
-.pageWrapper {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: rgb(47, 50, 59);
+header {
+  margin-bottom: 20px;
+}
+
+.gray-bg {
+  background-color: #52555f;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.white-text-black-bg {
+  color: #fff;
 }

@@ -7,12 +7,14 @@ import Portfolio from './Portfolio';
 import './css/main.css';
 
 const Main = () => (
-    <main className='content'>
-        <Switch>
-            <Route exact path='/' component={Listings} />    
-            <Route exact path='/portfolio' component={Portfolio} />    
-            <Route exact path='/listings' component={Listings} />    
-        </Switch>        
+    <main>
+        <div className='container'>
+            <Switch>
+                <Route exact path='/' component={Listings} />    
+                <Route exact path='/portfolio' component={Portfolio} />    
+                <Route exact path='/listings' component={Listings} />    
+            </Switch>        
+        </div>
     </main>
 )
 
