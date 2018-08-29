@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Col } from 'react-bootstrap';
 
 import LoaderContainer from './LoaderContainer';
 import GetCoinMarketCapData from './../actions/GetCoinMarketCapData';
@@ -27,7 +27,7 @@ class CryptoContainer extends Component {
                 <Grid fluid className='display-flex'>
                     {crypto.response.data.length > 0 ? 
                         crypto.response.data.map((coin, index) =>
-                        <Col lg={2} md={4} sm={4} xs={6}>
+                        <Col key={`col-${index}`} lg={2} md={4} sm={4} xs={6}>
                             <CoinCard
                                 key={index}
                                 name={coin.name}
